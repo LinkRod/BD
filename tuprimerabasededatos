@@ -1,0 +1,37 @@
+ALTER TABLE usuarios
+ADD COLUMN apodo VARCHAR(64);
+
+id          nombre      apellido    email             fecha_nacimiento  genero      apodo     
+----------  ----------  ----------  ----------------  ----------------  ----------  ----------
+1           Carlos      Ribero      carlos@yahoo.com  1970-11-03        masculino             
+
+
+INSERT INTO usuarios
+nombre, apellido, email, fecha_nacimiento, genero, apodo)
+VALUES
+('Hector', 'Rodriguez', 'hecrod@gmail.com', '1991-15-12', 'masculino', 'goku');
+
+id          nombre      apellido    email             fecha_nacimiento  genero      apodo     
+----------  ----------  ----------  ----------------  ----------------  ----------  ----------
+1           Carlos      Ribero      carlos@yahoo.com  1970-11-03        masculino             
+2           Hector      Rodriguez   hecrod@gmail.com  1991-15-12        masculino   goku      
+
+
+UPDATE usuarios
+SET apodo = 'Charly'
+WHERE id = 1;
+
+id          nombre      apellido    email             fecha_nacimiento  genero      apodo     
+----------  ----------  ----------  ----------------  ----------------  ----------  ----------
+1           Carlos      Ribero      carlos@yahoo.com  1970-11-03        masculino   Charly    
+2           Hector      Rodriguez   hecrod@gmail.com  1991-15-12        masculino   Goku      
+
+
+UPDATE usuarios
+SET apellido = 'Rivero', fecha_nacimiento = '1980-11-03'
+WHERE id = 1;
+
+id          nombre      apellido    email             fecha_nacimiento  genero      apodo     
+----------  ----------  ----------  ----------------  ----------------  ----------  ----------
+1           Carlos      Rivero      carlos@yahoo.com  1980-11-03        masculino   Charly    
+2           Hector      Rodriguez   hecrod@gmail.com  1991-15-12        masculino   Goku   
