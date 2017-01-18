@@ -1,43 +1,40 @@
 class CreateFlights < ActiveRecord::Migration
   def change
     create_table :flights do |t|
-      # Completa con las columnas que necesites
-      t.integer :num_flight
-      t.date :date
-      t.date :depart
+      t.integer :num_flight 
+      t.string :date
+      t.string :depart
       t.string :from
       t.string :to
-      t.time :duration
-      t.float :cost
-      t.integer :passengers
+      t.string :duration
+      t.integer :cost
+      t.integer :passenger
       t.timestamps
     end
 
     create_table :users do |t|
-    	# Completa con las columnas que necesites
       t.string :name
-      t.string :email
-      t.string
+      t.string :email, unique: true
+      t.boolean :admin, default: false
       t.timestamps
     end
 
-    #crea las tablas restantes
     create_table :bookings do |t|
       t.integer :num_booking
-      t.integer :total
+      t.integer :total_cost
+      t.integer :flight_id
       t.timestamps
     end
+   
+    create_table :user_flights do |t|
+      t.integer :user_id
+      t.integer :flight_id
+      t.timestamps
+    end 
 
-    create_table :userbookings do |t|
-      t.integer :userid
-      t.integer :bookingid
-      t.timestamps
-    end
-
-    create_table :userflights do |t|
-      t.integer :userid
-      t.integer :flightid
-      t.timestamps
-    end
+    create_table :user_bookings do |t|
+      t.integer :booking_id
+      t.integer :user_id
+    end   
   end
 end
